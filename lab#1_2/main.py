@@ -14,7 +14,6 @@ def quick_sort(arr):
         sorted_right, right_steps = quick_sort(right)
         return sorted_left + middle + sorted_right, steps + left_steps + right_steps
 
-
 def heapify(arr, n, i):
     largest = i
     left = 2 * i + 1
@@ -33,7 +32,6 @@ def heapify(arr, n, i):
         steps += 1 + heapify(arr, n, largest)  # один шаг за обмен и рекурсивно считаем шаги
     return steps
 
-
 def heap_sort(arr):
     n = len(arr)
     steps = 0
@@ -43,7 +41,6 @@ def heap_sort(arr):
         arr[i], arr[0] = arr[0], arr[i]
         steps += 1 + heapify(arr, i, 0)
     return arr, steps
-
 
 def shell_sort(arr):
     n = len(arr)
@@ -62,15 +59,13 @@ def shell_sort(arr):
     return arr, steps
 
 
-# Файл для записи результатов
 with open("sort_results.txt", "w") as f:
-    for run in range(15):  # Выполняем 15 раз
+    for run in range(15):
         f.write(f"Запуск номер: {run + 1}\n")
-        # Генерация случайного массива
-        array = [random.randint(1, 1000) for _ in range(100)]
+        array = [random.randint(1, 100000) for _ in range(10000)]
 
         for sort_function in [quick_sort, heap_sort, shell_sort]:
-            copy_array = array.copy()  # Копирование массива для каждой сортировки
+            copy_array = array.copy()
 
             start_time = time.time()
             sorted_array, total_steps = sort_function(copy_array)
