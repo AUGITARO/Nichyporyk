@@ -1,4 +1,5 @@
 # -*- coding: cp1251 -*-
+# Считать текст из текстового файла, каждую строку, длина которой превышает заданное число заменить на «!!!»
 def replace_long_lines(input_file, output_file, max_length):
     with open(input_file, 'r', encoding='utf-8') as file:
         lines = file.readlines()
