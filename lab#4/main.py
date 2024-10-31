@@ -39,7 +39,7 @@ def main():
         results.append((elapsed_time, steps))
 
         with open('results.txt', 'a') as f:
-            f.write(f"Итерация номер: {_}")
+            f.write(f"Итерация номер: {_} ")
             f.write(f"Затраченное время: {elapsed_time:.5f}s, Шаги: {steps},\n Дубликаты: {duplicates}\n")
 
     avg_time = np.mean([result[0] for result in results])
